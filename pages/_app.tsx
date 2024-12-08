@@ -22,9 +22,15 @@ import { arbitrum, bsc, gnosis, optimism, polygon } from 'viem/chains';
 import { z } from 'zod';
 import { useIsMounted } from '../hooks';
 
+
 const walletConnectProjectId = z
   .string()
+  .default('e51b1b130a0129e2a573a2ce91611873')
   .parse(process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID);
+
+// const walletConnectProjectId = z
+//   .string()
+//   .parse(process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID);
 
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, bsc, gnosis],
